@@ -3,8 +3,9 @@
 
 ### **1. Introducció i Justificació**
 
-Les **contrasenyes febles o reutilitzades** són un risc crític per a l’empresa, ja que faciliten atacs com el **diccionari**, el **brute force** o el **credential stuffing**.  
-Un **gestor de contrasenyes** redueix aquests riscos permetent generar i guardar contrasenyes segures de manera xifrada, evitant errors humans i millorant la seguretat general.
+- Les **contrasenyes febles o reutilitzades** són un risc crític per a l’empresa, ja que faciliten atacs com el **diccionari**, el **brute force** o el **credential stuffing**.
+  
+- Un **gestor de contrasenyes** redueix aquests riscos permetent generar i guardar contrasenyes segures de manera xifrada, evitant errors humans i millorant la seguretat general.
 
 ---
 
