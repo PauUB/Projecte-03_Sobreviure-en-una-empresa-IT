@@ -30,4 +30,4 @@ Cada error és una lliçó. Cada èxit, un triomf silenciós. EverPia 2 no és n
 
 ## 📖 Tasques
 
-- [Tasca 1](Tasca1)
+- [Tasca 1](Tasca01)
