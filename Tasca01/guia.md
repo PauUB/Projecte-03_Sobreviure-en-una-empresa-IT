@@ -18,7 +18,7 @@
    - Introdueix un **correu electrònic corporatiu** i una **contrasenya mestra forta**.  
    - Recomanació: utilitza una contrasenya d’almenys 16 caràcters, combinant majúscules, minúscules, números i símbols.  
 
-**📌 Captura de pantalla:** Interfície de creació de compte mestre.
+![Compte bitwarden](img/img2.png)
 
 ---
 
@@ -32,7 +32,7 @@
    - Evita caràcters amb confusió visual (`O` i `0`, `l` i `1`).  
 4. Fes clic a **Generar** i copia la contrasenya a la targeta corresponent o a l’aplicació.  
 
-**📌 Captura de pantalla:** Pantalla del generador de contrasenyes.
+![Generador de contrassenyes](img/img3.png)
 
 ---
 
@@ -58,7 +58,6 @@
 3. Selecciona l’element corresponent i fes clic a **Autofill**.  
 4. Bitwarden emplenarà automàticament nom d’usuari i contrasenya.
 
-**📌 Captura de pantalla:** Exemple d’autofill en un navegador.
 
 ---
 
@@ -75,7 +74,6 @@
 - Fes còpies periòdiques i comprova la seva integritat.  
 - No comparteixis mai l’arxiu sense xifrar.  
 
-**📌 Captura de pantalla:** Exportació i emmagatzematge segur del backup.
 
 ---
 
