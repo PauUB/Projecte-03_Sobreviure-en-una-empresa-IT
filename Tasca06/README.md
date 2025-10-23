@@ -1,4 +1,4 @@
-# 📘 README - Auditoria DNS per a DigiCore
+# 📘 Auditoria DNS per a DigiCore
 
 ## 🧭 Introducció
 Aquest projecte forma part d'una col·laboració entre EverPia i DigiCore, una empresa de màrqueting digital que experimenta problemes de connectivitat. L'objectiu és auditar el servei DNS i formar el personal tècnic del client per millorar la seva capacitat de diagnosi.
