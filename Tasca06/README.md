@@ -5,7 +5,6 @@ Aquest projecte forma part d'una col·laboració entre EverPia i DigiCore, una e
 
 ## 👥 Equip Tècnic
 - Consultora: EverPia
-- Membres implicats: [Afegiu noms i rols si cal]
 
 ## 🗂 Estructura del Projecte
 fase_teorica/         # Materials formatius
