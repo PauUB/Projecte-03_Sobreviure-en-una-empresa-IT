@@ -3,9 +3,11 @@
 ## A. Diagnosi Avançada amb `dig` (Linux / macOS)
 
 ### Comanda 1: Consulta Bàsica de Registre A
-**Comanda:**  
-`dig xtec.cat A`
 
+**Comanda:**
+```bash
+dig xtec.cat A
+```
 ![dig_xtec_cat_A](img/img2.png)
 
 **Anàlisi:**  
@@ -13,12 +15,12 @@
 - **TTL:** [2998]  
 - **Servidor que ha respost:** [127.0.0.53]
 
-**Captura:**  
 ![dig_xtec_cat_A](img/img1.png)
 
-**Comanda:** 
-`dig tecnocampus.cat NS`
-
+**Comanda:**
+```bash
+dig tecnocampus.cat NS
+```
 ![dig_tecnocampus_cat_NS](img/img4.png)
 
 **Anàlisi:**  
@@ -28,12 +30,12 @@
   - [ns-1071.awsdns-05.org.]
   - [ns-535.awsdns-02.net.]
 
-**Captura:**  
 ![dig_tecnocampus_cat_NS](img/img3.png)
 
 **Comanda:**  
-`dig escolapia.cat SOA`
-
+```bash
+dig escolapia.cat SOA
+```
 ![dig escolapia.cat SOA](img/img7.png)
 
 
@@ -45,9 +47,10 @@
 
 ![dig escolapia.cat SOA](img/img12.png)
 
-**Comanda:** 
-`dig -x 147.83.2.135`
-
+**Comanda:**
+```bash
+dig -x 147.83.2.135
+```
 ![dig_reverse_147_83_2_135](img/img9.png)
 
 **Anàlisi:**  
@@ -70,8 +73,6 @@ masters.upc.edu
 
 edicioweb.produccio.upc.edu
 
-**Captura:**  
-
 ![dig_reverse_147_83_2_135](img/img8.png)
 
 ---
@@ -81,15 +82,15 @@ edicioweb.produccio.upc.edu
 ### Comanda 1: Consulta Bàsica no Autoritativa
 
 **Comandes:**
-`nslookup
- set type=A
- tecnocampus.cat`
- 
+```bash
+nslookup
+set type=A
+tecnocampus.cat
+ ```
  **Anàlisi:**
 - La resposta és **no autoritativa** perquè prové d’un servidor de noms que no és autoritari per al domini consultat.
 - Això significa que el servidor ha obtingut la informació d’un altre servidor i no és la font original.
 
-**Captura:**
 ![nslookup_tecnocampus_cat_no_autoritat](img/img10.png)
 
 ---
@@ -97,12 +98,13 @@ edicioweb.produccio.upc.edu
 ## Comanda 2: Consulta Autoritativa
 
 **Comandes:**
-`nslookup`
+```bash
+nslookup
 
-`server [IP del servidor NS autoritatiu obtingut amb dig]
+server [IP del servidor NS autoritatiu obtingut amb dig]
 set type=A
-tecnocampus.cat`
-
+tecnocampus.cat
+```
 **Anàlisi:**
 - La resposta és **autoritativa** perquè prové directament d’un servidor de noms que gestiona el domini tecnocampus.cat.
 - Les diferències respecte a la consulta anterior inclouen:
@@ -110,7 +112,6 @@ tecnocampus.cat`
   - Possiblement més detalls en els registres.
   - Confirmació que el servidor és responsable del domini.
 
-**Captura:**
 ![nslookup_tecnocampus_cat_autoritat](img/img11.png)
 
 ---
@@ -123,19 +124,23 @@ La resolució local permet associar noms d’equip amb adreces IP dins d’una x
 
 #### Exemple de configuració
 
-**Fitxer modificat:** `/etc/hosts` (en sistemes Linux/macOS)
-
+**Fitxer modificat:** 
+```bash
+/etc/hosts (en sistemes Linux/macOS)
+```
 **Entrada afegida:**
- `192.168.1.100 servidorlocal`
+```bash
+ 192.168.1.100 servidorlocal
+```
  #### Comanda de prova
- `ping servidorlocal`
- 
+ ```bash
+ ping servidorlocal
+ ```
  #### Anàlisi:
 - Si la resolució local funciona correctament, el sistema reconeix el nom `servidorlocal` i l’associa a la IP `192.168.1.100`.
 - No es fa cap consulta externa al DNS.
 - És una solució ràpida i eficaç per a entorns petits o temporals.
 
-**Captura:**
 ![ping_servidorlocal]()
 
  
