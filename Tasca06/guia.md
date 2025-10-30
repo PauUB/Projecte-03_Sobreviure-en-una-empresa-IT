@@ -6,41 +6,75 @@
 **Comanda:**  
 `dig xtec.cat A`
 
+![dig_xtec_cat_A](img/img2.png)
+
 **Anàlisi:**  
-- **IP de resposta:** [Indicar IP obtinguda]  
-- **TTL:** [Indicar valor TTL]  
-- **Servidor que ha respost:** [Indicar servidor]
+- **IP de resposta:** [83.247.151.214]  
+- **TTL:** [2998]  
+- **Servidor que ha respost:** [127.0.0.53]
 
 **Captura:**  
-![dig_xtec_cat_A](img/)
-**Comanda:**  
+![dig_xtec_cat_A](img/img1.png)
+
+**Comanda:** 
 `dig tecnocampus.cat NS`
+
+![dig_tecnocampus_cat_NS](img/img4.png)
 
 **Anàlisi:**  
 - **Servidors de noms autoritatius:**  
-  - [Servidor 1]  
-  - [Servidor 2]  
-  - [etc.]
+  - [ns-130.awsdns-16.com.]  
+  - [ns-1689.awsdns-19.co.uk.]  
+  - [ns-1071.awsdns-05.org.]
+  - [ns-535.awsdns-02.net.]
 
 **Captura:**  
-![dig_tecnocampus_cat_NS]()
+![dig_tecnocampus_cat_NS](img/img3.png)
+
 **Comanda:**  
 `dig escolapia.cat SOA`
 
-**Anàlisi:**  
-- **Correu de l'administrador:** [Indicar correu]  
-- **Número de sèrie del domini:** [Indicar número]
+![dig escolapia.cat SOA](img/img7.png)
 
-**Captura:**  
-![dig_escolapia_cat_SOA]()
-**Comanda:**  
+
+**Anàlisi:**  
+- **Correu de l'administrador:** [root@dns1.nominalia.com]  
+- **Número de sèrie del domini:** [1761028965]
+
+**Captura:** 
+
+![dig escolapia.cat SOA](img/img12.png)
+
+**Comanda:** 
 `dig -x 147.83.2.135`
 
+![dig_reverse_147_83_2_135](img/img9.png)
+
 **Anàlisi:**  
-- **Informació obtinguda:** [Detallar registre PTR o altra informació]
+- **Informació obtinguda:** Es tracta d’un registre PTR (Pointer Record), que s’utilitza en DNS invers per associar una IP amb un o més noms de domini.
+En aquest cas, la IP 147.83.2.135 (es veu invertida com 135.2.83.147.in-addr.arpa) té associats diversos noms:
+
+saladepremsa.upc.edu
+
+upc.cat
+
+barcelonatech.upc.edu
+
+www.upc.es
+
+barcelonatech.upc.eu
+
+upc.edu
+
+masters.upc.edu
+
+edicioweb.produccio.upc.edu
 
 **Captura:**  
-![dig_reverse_147_83_2_135]()
+
+![dig_reverse_147_83_2_135](img/img8.png)
+
+---
 
 ## B. Comprovació de Resolució amb `nslookup` (Multiplataforma)
 
@@ -56,7 +90,7 @@
 - Això significa que el servidor ha obtingut la informació d’un altre servidor i no és la font original.
 
 **Captura:**
-!nslookup_tecnocampus_cat_no_autoritat
+![nslookup_tecnocampus_cat_no_autoritat](img/img10.png)
 
 ---
 
@@ -68,6 +102,7 @@
 `server [IP del servidor NS autoritatiu obtingut amb dig]
 set type=A
 tecnocampus.cat`
+
 **Anàlisi:**
 - La resposta és **autoritativa** perquè prové directament d’un servidor de noms que gestiona el domini tecnocampus.cat.
 - Les diferències respecte a la consulta anterior inclouen:
@@ -76,7 +111,9 @@ tecnocampus.cat`
   - Confirmació que el servidor és responsable del domini.
 
 **Captura:**
-!nslookup_tecnocampus_cat_autoritat
+![nslookup_tecnocampus_cat_autoritat](img/img11.png)
+
+---
 
 ## C. Resolució Local
 
