@@ -136,6 +136,6 @@ La resolució local permet associar noms d’equip amb adreces IP dins d’una x
 - És una solució ràpida i eficaç per a entorns petits o temporals.
 
 **Captura:**
-!ping_servidorlocal
+![ping_servidorlocal]()
 
  
