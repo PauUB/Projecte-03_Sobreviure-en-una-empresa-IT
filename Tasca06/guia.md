@@ -102,7 +102,7 @@ tecnocampus.cat
 nslookup
 
 server [IP del servidor NS autoritatiu obtingut amb dig]
-set type=A
+set type=NS
 tecnocampus.cat
 ```
 ![nslookup_tecnocampus_cat_autoritat](img/img14.png)
