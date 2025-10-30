@@ -105,6 +105,8 @@ server [IP del servidor NS autoritatiu obtingut amb dig]
 set type=A
 tecnocampus.cat
 ```
+![nslookup_tecnocampus_cat_autoritat](img/img14.png)
+
 **Anàlisi:**
 - La resposta és **autoritativa** perquè prové directament d’un servidor de noms que gestiona el domini tecnocampus.cat.
 - Les diferències respecte a la consulta anterior inclouen:
@@ -112,7 +114,7 @@ tecnocampus.cat
   - Possiblement més detalls en els registres.
   - Confirmació que el servidor és responsable del domini.
 
-![nslookup_tecnocampus_cat_autoritat](img/img11.png)
+![nslookup_tecnocampus_cat_autoritat](img/img13.png)
 
 ---
 
@@ -128,19 +130,22 @@ La resolució local permet associar noms d’equip amb adreces IP dins d’una x
 ```bash
 /etc/hosts (en sistemes Linux/macOS)
 ```
+![sudo nano /etc/hosts](img/img17.png)
 **Entrada afegida:**
 ```bash
- 192.168.1.100 servidorlocal
+ 127.0.0.53 server-IP
 ```
+![entrada afegida](img/img16.png)
+
  #### Comanda de prova
  ```bash
- ping servidorlocal
+ ping server-IP
  ```
+![ping server-IP](img/img15.png)
+
  #### Anàlisi:
-- Si la resolució local funciona correctament, el sistema reconeix el nom `servidorlocal` i l’associa a la IP `192.168.1.100`.
+- Si la resolució local funciona correctament, el sistema reconeix el nom `server-IP` i l’associa a la IP `127.0.0.53`.
 - No es fa cap consulta externa al DNS.
 - És una solució ràpida i eficaç per a entorns petits o temporals.
-
-![ping_servidorlocal]()
 
  
