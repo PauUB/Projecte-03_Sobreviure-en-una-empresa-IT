@@ -33,3 +33,4 @@ Cada error és una lliçó. Cada èxit, un triomf silenciós. EverPia 2 no és n
 - [Tasca 1](Tasca01)
 - [Tasca 4](Tasca04)
 - [Tasca 6](Tasca06)
+- [Tasca 7](Tasca07)
