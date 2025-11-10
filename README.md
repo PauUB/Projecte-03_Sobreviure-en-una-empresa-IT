@@ -34,3 +34,7 @@ Cada error és una lliçó. Cada èxit, un triomf silenciós. EverPia 2 no és n
 - [Tasca 4](Tasca04)
 - [Tasca 6](Tasca06)
 - [Tasca 7](Tasca07)
+
+## ✅ Productes finals
+- [Producte 7](Producte07)
+- 
