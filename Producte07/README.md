@@ -1,4 +1,4 @@
-# Resum de la tasca sobre sostenibilitat a EverPia
+# P07: ASG a EverPia: informe visual per a inversors
 
 Durant dues sessions, fareu de **consultors de sostenibilitat digital** per a l’empresa tecnològica **EverPia**, amb l’objectiu de fer-la més **ètica, eficient i justa**.
 
