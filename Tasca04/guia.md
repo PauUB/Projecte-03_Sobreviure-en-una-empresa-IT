@@ -1,94 +1,92 @@
-# T04: Serveis de directori. LDAP
+# 🧩 T04: Serveis de Directori – LDAP
 
-## Instal·lació OpenLDAP
+## 🛠️ 1. Instal·lació d’OpenLDAP
 
-- La xarxa tindrà dues interfícies una en xarxaNAT i l'altra en host-only
+- La màquina tindrà **dues interfícies de xarxa**:
+  - Una en **xarxa NAT**
+  - Una altra en **host-only**
 
-- El primer pas és instal·lar ldap-utils
+- Instal·lem el paquet **`ldap-utils`**:
 
-![instal·lació ldap](img/img1.png)
+![Instal·lació ldap](img/img1.png)
 
-- Ara configurarem la contrassenya del servei
+- Durant la configuració, establim la **contrasenya del servei LDAP** (`p@ssw0rd`):
 
-![contrassenya ldap:p@ssw0rd](img/img2.png)
+![Contrasenya ldap](img/img2.png)
 
-- Comprovem que el servei funciona correctament
+- Comprovem que el **servei LDAP s’està executant correctament**:
 
 ![Comprovació servei](img/img3.png)
 
-- Ara comprovem que el directori s'ha crteat amb el nom correcte
+- Verifiquem que el **directori s’ha creat amb el nom correcte**:
 
 ![Comprovació del directori](img/img4.png)
 
-- Creem els OU d'users i de groups
+- Creem les **Unitats Organitzatives (OU)** per a *users* i *groups*:
 
 ![Creació d'OU](img/img5.png)
 
-- Comprovem que s'hagi creat correctament
+- Comprovem que s’han creat correctament:
 
-  ![comprovació](img/img7.png)
-
-  ---
-
-  ## Configuració directori usant LAM
-
-  - Anirem a LDAP account manager
-
-  ![LDAP account manager](img/img8.png)
-
-  - Ems dirigim a *LAM configuration* i un cop allà anem a *Edit server profiles* amb el password lam
-
-  ![LAM](img/img9.png)
-  
-  ![LAM](img/img10.png)
-
-- Primeres configuracions: idioma, compte admin, etc.
-
-![configuracions bàsiques](img/img11.png)
-
-![configuracions bàsiques](img/img12.png)
-
-![configuracions bàsiques](img/img14.png)
-
-- Ara accedirem al directori
-  
-![Accés directori](img/img13.png)
-
-- Un cop haver-hi accedit creem els grups tech i manager
-  
-![Creació grup tech](img/img15.png)
-
-![Creació grup manager](img/img16.png)
-
-![Comprovació dels grups](img/img17.png)
-
-- Creem els usuaris tech01 i manager01
-  
-![creació usuari tech01](img/img18.png)
-
-![creació usuari tech01](img/img19.png)
-
-![creació usuari tech01](img/img20.png)
-
-![creació usuari manager01](img/img21.png)
-
-![creació usuari manager01](img/img22.png)
-
-![creació usuari manager01](img/img23.png)
+![Comprovació OU](img/img7.png)
 
 ---
 
-##  Autenticació utilitzant LDAP
+## ⚙️ 2. Configuració del directori amb LDAP Account Manager (LAM)
 
-- Configurem el nom del client per tal de que sigui del domini corresponent del directori modificant l'arxiu `/etc/hosts`
+- Obrim el **LDAP Account Manager**:
 
-![entrem a l'arxiu hosts](img/img24.png)
+![LDAP account manager](img/img8.png)
 
-- Instal·lem libpam i nss
+- Accedim a:
+  **LAM Configuration → Edit server profiles**
+  i entrem amb la contrasenya `lam`.
 
+![LAM configuració](img/img9.png)
+![LAM configuració](img/img10.png)
+
+- Configurem els **paràmetres bàsics**: idioma, compte administrador, etc.
+
+![Configuracions bàsiques](img/img11.png)
+![Configuracions bàsiques](img/img12.png)
+![Configuracions bàsiques](img/img14.png)
+
+- Accedim al **directori LDAP**:
+
+![Accés al directori](img/img13.png)
+
+- Creem els **grups** `tech` i `manager`:
+
+![Creació grup tech](img/img15.png)
+![Creació grup manager](img/img16.png)
+![Comprovació grups](img/img17.png)
+
+- Creem els **usuaris** `tech01` i `manager01`:
+
+![Creació usuari tech01](img/img18.png)
+![Creació usuari tech01](img/img19.png)
+![Creació usuari tech01](img/img20.png)
+![Creació usuari manager01](img/img21.png)
+![Creació usuari manager01](img/img22.png)
+![Creació usuari manager01](img/img23.png)
+
+---
+
+## 🔐 3. Autenticació utilitzant LDAP
+
+- Configurem el **nom del client** per associar-lo al domini del directori, editant l’arxiu `/etc/hosts`:
+
+![Edició hosts](img/img24.png)
+
+- Instal·lem els paquets necessaris:
+
+```bash
+sudo apt install libpam-ldap libnss-ldap nscd
+
+```
 ![Instal·lació](img/img32.png)
 
-- Ara farem la configuració
+- Realitzarem la **configuració del client LDAP**:
 
 ![configuració](img/img25.png)
 
@@ -104,43 +102,59 @@
 
 ![configuració](img/img31.png)
 
-- Des del client comprovem si es connecta al servidor
+- Comprovem la **connexió entre el client i el servidor**:
 
 ![comprovació client-servidor](img/img33.png)
 
-- Configurem l'arxiu nsswitch.conf per indicar que s'usarà ldap per usuaris i grups
+- Editem l’arxiu `/etc/nsswitch.conf` per indicar que s’utilitzarà LDAP per a usuaris i grups:
 
+```bash
+
+passwd:         files systemd ldap
+group:          files systemd ldap
+shadow:         files ldap
+```
 ![modificació arxiu](img/img34.png)
 
-- Eliminem la línia use_authtok a l'arxiu /etc/pam.d/common-password
+- Eliminem la línia `use_authtok ` de l’arxiu `/etc/pam.d/common-password`:
+
 
 ![eliminació línia](img/img35.png)
 
 ![eliminació línia](img/img36.png)
 
-- Ara editem l'arxiu /etc/pam.d/common-session i afagim la linia per a crear els perfils
+- Editem l’arxiu `/etc/pam.d/common-session` i afegim la línia següent per crear automàticament els directoris personals dels usuaris:
 
+```bash
+session required pam_mkhomedir.so skel=/etc/skel umask=0022
+```
 ![creació de la línia](img/img37.png)
 
-- Reiniciem el servei amb
-  ```bash
-  systemctl restart nscd
-  ```
-- Comprovem que veu els usuaris LDAP
+- Reiniciem el servei de memòria cau d’usuaris:
 
-![Comprovació](img/img38.png)
 
-- Per finalitzar editem l'arxiu /etc/pam.d/gdm-launch-environment
+```bash
+sudo sysstemctl restart nscd
+```
+- Comprovem que el sistema **detecta els usuaris LDAP**:
+![Comprovació usuaris LDAP](img/img38.png)
+
+- Editem l’arxiu `/etc/pam.d/gdm-launch-environment` per assegurar l’autenticació gràfica:
 
 ![edició arxiu](img/img39.png)
 
-- Reiniciem el client i provem a iniciar sessió amb un dels usuaris del directori
-
+- Reiniciem el client i **iniciem sessió amb un usuari del directori** (`tech01`, per exemple):
 ![sessió tech01](img/img40.png)
 
 ![sessió tech01](img/img41.png)
 
-- Un cop iniciem sessió comprovem com se li ha creat la carpeta personal i comprovem l'usuari
+- Un cop iniciada la sessió, comprovem que:
+
+
+  - S’ha creat la **carpeta personal de l’usuari**
+
+  - L’usuari s’ha **autenticat correctament via LDAP**
+
 
 ![Comprovació final](img/img42.png)
 
